@@ -1,0 +1,26 @@
+name: JustOneBio
+services:
+  justonebio.server:
+    container_name: JustOneBioServer
+    image: ${DOCKER_REGISTRY-}justonebioserver
+    build:
+      context: .
+      dockerfile: JustOneBio.Server/Dockerfile
+    depends_on:
+      - justonebio.db
+
+  justonebio.db:
+    container_name: JustOneBioDB
+    image: mcr.microsoft.com/mssql/server:2025-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD
+    ports:
+      - "1433:1433"
+    volumes:
+      - dbdata:/var/opt/mssql
+    env_file:
+      - ./.env
+
+volumes:
+  dbdata:

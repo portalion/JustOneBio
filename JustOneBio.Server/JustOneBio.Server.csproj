@@ -9,6 +9,7 @@
     <SpaRoot>..\justonebio.client</SpaRoot>
     <SpaProxyLaunchCommand>npm run dev</SpaProxyLaunchCommand>
     <SpaProxyServerUrl>https://localhost:50234</SpaProxyServerUrl>
+    <DockerComposeProjectPath>..\JustOneBio.docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\justonebio.client\justonebio.client.esproj">
+    <ProjectReference Include="..\justonebio.client\JustOneBio.Client.esproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>
