@@ -11,16 +11,16 @@ services:
 
   justonebio.db:
     container_name: JustOneBioDB
-    image: mcr.microsoft.com/mssql/server:2025-latest
-    environment:
-      - ACCEPT_EULA=Y
-      - SA_PASSWORD
+    image: ${DOCKER_REGISTRY-}justonebiodb
     ports:
       - "1433:1433"
-    volumes:
-      - dbdata:/var/opt/mssql
+    build:
+      context: .
+      dockerfile: dockerfile.database
     env_file:
       - ./.env
-
+    volumes:
+      - dbdata:/var/opt/mssql
+   
 volumes:
   dbdata:

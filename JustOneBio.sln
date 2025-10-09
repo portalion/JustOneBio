@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JustOneBio.Desktop", "JustO
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "JustOneBio.docker-compose", "JustOneBio.docker-compose.dcproj", "{81DDED9D-158B-E303-5F62-77A2896D2A5A}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "JustOneBio.Database", "JustOneBio.Database\JustOneBio.Database.sqlproj", "{123354F4-1EDE-4770-9A27-EEE0DBC49CEB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,12 @@ Global
 		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{123354F4-1EDE-4770-9A27-EEE0DBC49CEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{123354F4-1EDE-4770-9A27-EEE0DBC49CEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{123354F4-1EDE-4770-9A27-EEE0DBC49CEB}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{123354F4-1EDE-4770-9A27-EEE0DBC49CEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{123354F4-1EDE-4770-9A27-EEE0DBC49CEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{123354F4-1EDE-4770-9A27-EEE0DBC49CEB}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
