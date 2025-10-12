@@ -58,9 +58,6 @@
     <Folder Include="Properties" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Table1.sql" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="JustOneBio.Database.publish.xml" />
   </ItemGroup>
   <PropertyGroup>
