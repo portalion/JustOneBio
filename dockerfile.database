@@ -2,7 +2,6 @@
 FROM mcr.microsoft.com/mssql/server:2025-latest
 
 ENV ACCEPT_EULA=Y
-ENV SA_PASSWORD=Your_password123
 ENV MSSQL_PID=Developer
 
 USER root
@@ -16,8 +15,8 @@ RUN apt-get update && apt-get install -y wget unzip libunwind8 libicu70 && \
 # Make sure sqlpackage is in PATH
 ENV PATH="$PATH:/opt/sqlpackage"
 # Copy your DACPAC into the container
-COPY ./JustOneBio.Database/JustOneBio.Database.dacpac /var/opt/mssql/JustOneBioDB.dacpac
-COPY ./JustOneBio.Database/entrypoint.sh /usr/src/entrypoint.sh
+COPY ./Dacpac/JustOneBio.Database.dacpac /var/opt/mssql/JustOneBioDB.dacpac
+COPY ./scripts/entrypoint.sh /usr/src/entrypoint.sh
 RUN chmod +x /usr/src/entrypoint.sh
 
 ENTRYPOINT ["/usr/src/entrypoint.sh"]

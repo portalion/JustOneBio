@@ -1,18 +1,24 @@
 #!/bin/bash
+set -e
 
-# Wait for SQL Server to start
+/opt/mssql/bin/sqlservr &
+
 echo "Waiting for SQL Server to start..."
-sleep 15
+until /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P ${SA_PASSWORD} -C -Q "SELECT 1" > /dev/null 2>&1; do
+  sleep 1
+  echo "Still Waiting for SQL Server to be available..."
+done
 
-# Deploy the DACPAC
-/opt/mssql-tools/bin/sqlpackage /Action:Publish \
-    /SourceFile:/var/opt/mssql/dacpac/JustOneBio.Database.dacpac \
-    /TargetServerName:localhost \
-    /TargetDatabaseName:RandomTemporary \
-    /TargetUser:sa \
-    /TargetPassword:JustOneBioBestPassword123@
+echo "Deploying DACPAC..."
+/opt/sqlpackage/sqlpackage /Action:Publish \
+  /SourceFile:/var/opt/mssql/JustOneBioDB.dacpac \
+  /TargetServerName:localhost,1433 \
+  /TargetDatabaseName:${DB_NAME} \
+  /TargetUser:sa \
+  /TargetPassword:${SA_PASSWORD} \
+  /SourceTrustServerCertificate:True \
+  /TargetTrustServerCertificate:True \
+  /Quiet
 
-echo "DACPAC deployment completed."
-
-# Keep the container running
-tail -f /dev/null
+echo "DACPAC deployment complete."
+wait
