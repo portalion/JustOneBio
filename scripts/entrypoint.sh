@@ -17,6 +17,7 @@ echo "Deploying DACPAC..."
   /TargetUser:sa \
   /TargetPassword:${SA_PASSWORD} \
   /SourceTrustServerCertificate:True \
+  /DropObjectsNotInSource:True \
   /TargetTrustServerCertificate:True \
   /Quiet
 

@@ -60,6 +60,9 @@
   <ItemGroup>
     <None Include="JustOneBio.Database.publish.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <Build Include="User.sql" />
+  </ItemGroup>
   <PropertyGroup>
     <PostBuildEvent>xcopy "$(ProjectDir)$(OutDir)*.dacpac" "$(SolutionDir)Dacpac\" /Y /I
 </PostBuildEvent>
